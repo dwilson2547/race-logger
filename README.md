@@ -2,15 +2,14 @@
 tier: project
 domain: embedded
 secondary: [robotics, automotive]
-status: superseded
 ---
 
 # Race Logger
 
 An ESP32 OBD-II logger for CAN, GPS and IMU, recording to SD and publishing over MQTT, with an
 Android companion app for configuration over BLE. Its ingest path grew into the robo-services
-telemetry pipeline (kreceiver → iggy). Live capture moved to the phone gateway and the dbc-forge CAN
-dongle, so this is no longer the device in use.
+telemetry pipeline (kreceiver → iggy), which the phone gateway and the dbc-forge CAN dongle now
+also feed.
 
 Moved out of `robotics/robo-services` (`capture_device_configs/mid_tier_device/`) on 2026-11-07;
 earlier history is in that repo.
