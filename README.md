@@ -21,7 +21,7 @@ earlier history is in that repo.
 | `firmware/` | PlatformIO project (`platformio.ini`, sources in `race_logger/`), `configure_gps.py` |
 | `companion_app/` | Android companion app (BLE config: Wi-Fi, MQTT) and its CHANGELOG |
 | `docs/gps_setup.md` | NEO-M9N setup, 10 Hz |
-| `docs/xiao_s3_pin_layout.md` | Pin layout for a XIAO ESP32-S3 version (dated 2026-05-31); whether it was built is ⚠ unverified |
+| `designs/xiao_s3/` | Two XIAO ESP32-S3 designs (a pin plan and a firmware sketch), never built |
 
 ## Revisions
 
