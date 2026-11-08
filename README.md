@@ -117,9 +117,14 @@ Run from `firmware/v2/`.
 
 ### First time setup
 1. Install [PlatformIO](https://platformio.org/install)
-2. Get mpack amalgamation from https://github.com/ludocode/mpack/releases
-   - Extract and copy `mpack.h` and `mpack.c` into `src/`
-3. `pio run` — all other libraries install automatically
+2. `pio run`: libraries install automatically; mpack is already in `race_logger/`
+
+Builds with PlatformIO 6.1.18 (verified 2026-11-08): 1.52 MB, 77% of the app partition.
+
+The partition table is `min_spiffs.csv` (two 1.9 MB app slots for OTA, small SPIFFS). The
+firmware outgrew `default.csv`'s 1.25 MB slots. A board last flashed with another table needs one
+USB flash, not OTA, to switch, and that flash wipes SPIFFS, so the device config has to be
+entered again. Which table the v2 board has now is ⚠ unverified.
 
 ### Upload and monitor
 ```bash
