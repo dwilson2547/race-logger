@@ -18,22 +18,35 @@ earlier history is in that repo.
 
 | Path | What |
 |---|---|
-| `firmware/` | PlatformIO project (`platformio.ini`, sources in `race_logger/`), `configure_gps.py` |
+| `firmware/v1/` | v1 sketch, wiring and photo |
+| `firmware/v2/` | v2, the current build: PlatformIO project (`platformio.ini`, sources in `race_logger/`), `configure_gps.py`, photo |
 | `companion_app/` | Android companion app (BLE config: Wi-Fi, MQTT) and its CHANGELOG |
 | `docs/gps_setup.md` | NEO-M9N setup, 10 Hz |
 | `designs/xiao_s3/` | Two XIAO ESP32-S3 designs (a pin plan and a firmware sketch), never built |
 
 ## Revisions
 
-**v1:** ESP32-WROOM-32E dev board, GoouuuTech GT-U7 GPS with a patch antenna, an MPU-series IMU
-breakout, two LEDs. No CAN transceiver is visible in the photo.
+**v1** (`firmware/v1/`): ESP32-WROOM-32E dev board, GoouuuTech GT-U7 GPS with a patch antenna, MPU-6050
+IMU, two LEDs, no CAN. GPS and IMU as JSON over Wi-Fi UDP.
 
-![Race logger v1](docs/images/race_logger_v1.jpg)
+![Race logger v1](firmware/v1/race_logger_v1.jpg)
 
-**v2:** the build documented below. SparkFun ESP32 Thing Plus, u-blox NEO-M9N with an SMA
+**v2** (`firmware/v2/`): the build documented below. SparkFun ESP32 Thing Plus, u-blox NEO-M9N with an SMA
 antenna connector, BNO08x IMU, TJA1051T, microSD module, buck regulator, three LEDs.
 
-![Race logger v2](docs/images/race_logger_v2.jpg)
+![Race logger v2](firmware/v2/race_logger_v2.jpg)
+
+## Related hardware
+
+The race logger is one of two device lines feeding robo-services (from the user, 2026-11-08):
+
+- **Race logger:** v1, then v2 (this repo). The XIAO ESP32-S3 designs in `designs/xiao_s3/`
+  were never built.
+- **CAN dongle:** started as the SD CAN logger (`embedded/dbc-forge`, `firmware/sd_can_logger/`).
+  The early units were XIAO ESP32-S3s; later ones moved to the XIAO ESP32-C6, which was cheaper and
+  easier to get. The dbc-forge BLE bridge and the phone gateway run on that dongle hardware. The
+  two XIAO S3s became a pair of SavvyCAN (ESP32RET) sniffers (robo-services
+  `docs/hardware/esp32ret_xiao_s3.md`).
 
 # v2 reference
 SparkFun ESP32 Thing Plus · u-blox NEO-M9N · BNO085 · TJA1051T · SPI SD · MQTT
@@ -99,6 +112,8 @@ SparkFun ESP32 Thing Plus · u-blox NEO-M9N · BNO085 · TJA1051T · SPI SD · M
 ---
 
 ## Build
+
+Run from `firmware/v2/`.
 
 ### First time setup
 1. Install [PlatformIO](https://platformio.org/install)
