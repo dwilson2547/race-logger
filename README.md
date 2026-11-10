@@ -36,6 +36,13 @@ antenna connector, BNO08x IMU, TJA1051T, microSD module, buck regulator, three L
 
 ![Race logger v2](firmware/v2/race_logger_v2.jpg)
 
+**v3: parked (2026-11-10), never wired.** Parts laid out on a breadboard: u-blox ZED-F9P, BNO085,
+SIM7600X 4G HAT, TJA1051, SD card slot, Waveshare ESP32-S3 Mini. Not continued because the CAN
+dongle already has CAN, the IMU and the phone link, and the phone logs and publishes, so the SD
+card and 4G add nothing. GPS goes on the dongle instead, as an M10 (robo-services
+`docs/hardware/xiao_c6_can_dongle_build.md`). The F9P is set aside for another project. No
+firmware.
+
 ## Related hardware
 
 The race logger is one of two device lines feeding robo-services (from the user, 2026-11-08):
